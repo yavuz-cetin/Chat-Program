@@ -1,3 +1,5 @@
+Multithreaded chat program in C using socket programming.
+
 To run the server: ./server
 
 To run the client: ./client [any client id]
