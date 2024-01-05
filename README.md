@@ -26,8 +26,7 @@ successful. If this id has not been registered before, registration is started. 
 that registration is required. On the client side, the necessary information is received from the user.
 The Client program transmits this information to the Server. Server creates a new user with this
 information and creates the necessary storage files.
-After a successful login, the user is asked for the operation number he/she wants to perform. What
-these operations do will be explained in detail in the function explanations section.
+After a successful login, the user is asked for the operation number he/she wants to perform.
 
 Some Program Screenshots:
 
