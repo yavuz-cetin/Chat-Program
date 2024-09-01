@@ -5,28 +5,32 @@ To run the server: ./server
 To run the client: ./client [any client id]
 
 Problem Explanation
+The goal of this project is to create a multithreaded messaging application using sockets. The server will create a socket and listen for client connections. Users should be able to send messages to people on their friends list, and they should receive notifications when a message arrives. Communication should occur directly between the server and client, with no peer-to-peer messaging between clients. Additionally, users should be able to:
 
-In this project, it is aimed to create a multithreaded messaging application that uses sockets. Server
-should create a socket and Client connections should be listened. Users should be able to send
-messages to people in their friends list. The user should be notified when a message arrives. Direct
-communication should only be between server and client. Users should be able to add friends. Users
-should be able to delete friends. Users should be able to view the information of all their friends.
-Users should be able to see all messages received from a person of their choice. All information
-should be read from the files by the server at the first runtime and forwarded to the client when
-necessary.
+Add friends.
+Delete friends.
+View information about all their friends.
+See all messages received from a specific person of their choice.
+All user data should be stored in files on the server. Upon startup, the server reads this data from the files, and it will provide the necessary information to the client when requested.
 
 Solution
+Client Connection:
 
-When the client first connects to the server, a thread is created on the client that listens for
-messages from the server. Likewise, a thread is created on the server side that listens to this client.
-All information of registered users is stored in folders named with their ids under the 'rsc' folder.
-The user gives the id as an argument when running the program. The client program forwards this id
-to the server. If this id has been registered before, no registration is required and the login is
-successful. If this id has not been registered before, registration is started. Server informs the user
-that registration is required. On the client side, the necessary information is received from the user.
-The Client program transmits this information to the Server. Server creates a new user with this
-information and creates the necessary storage files.
-After a successful login, the user is asked for the operation number he/she wants to perform.
+When a client connects to the server, the server creates a dedicated thread to handle communication with that client. Similarly, the client creates a thread to listen for incoming messages from the server.
+User Data Storage:
+
+All registered user information is stored in directories named after their user IDs under the 'rsc' folder on the server.
+The user provides their ID as an argument when launching the client program. The client sends this ID to the server.
+User Registration:
+
+If the provided ID is already registered, the user logs in successfully without requiring re-registration.
+If the ID is not registered, the server prompts the client to start the registration process.
+The client collects the necessary registration information from the user and sends it to the server.
+The server creates a new user with this information and stores it in the appropriate files.
+Operations:
+
+After a successful login, the server presents the user with a list of operations they can perform, such as adding or deleting friends, viewing friend information, or retrieving messages.
+
 
 Some Program Screenshots:
 
