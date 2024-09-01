@@ -17,13 +17,14 @@ See all messages received from a specific person of their choice.
 
 All user data should be stored in files on the server. Upon startup, the server reads this data from the files, and it will provide the necessary information to the client when requested.
 
-Solution
 Client Connection:
 
 When a client connects to the server, the server creates a dedicated thread to handle communication with that client. Similarly, the client creates a thread to listen for incoming messages from the server.
+
 User Data Storage:
 
 All registered user information is stored in directories named after their user IDs under the 'rsc' folder on the server.
+
 The user provides their ID as an argument when launching the client program. The client sends this ID to the server.
 
 User Registration:
